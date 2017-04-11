@@ -18,8 +18,8 @@ class ViewController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
         uiOutline.delegate = self
         uiOutline.dataSource = self
        // uiOutline.headerView = nil
-        uiOutline.headerView?.column(at: <#T##NSPoint#>)
-        
+        let columns = uiOutline.headerView?.subviews.count
+        print(" \(columns)")
 
         // Do any additional setup after loading the view.
         self.loadDemoData()

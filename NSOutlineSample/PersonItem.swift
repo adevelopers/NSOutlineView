@@ -68,4 +68,9 @@ class PersonItem: PersonProtocol {
         
         return children.object(at: index) as! PersonProtocol
     }
+    
+    //MARK: Extension
+    func getAge() -> String {
+        return "\(self.age)"
+    }
 }

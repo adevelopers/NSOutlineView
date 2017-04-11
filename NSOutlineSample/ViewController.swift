@@ -18,6 +18,7 @@ class ViewController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
         uiOutline.delegate = self
         uiOutline.dataSource = self
        // uiOutline.headerView = nil
+        uiOutline.headerView?.column(at: <#T##NSPoint#>)
         
 
         // Do any additional setup after loading the view.
@@ -54,8 +55,19 @@ class ViewController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
         }
         
         print("item: \(person.getText())")
+        if tableColumn?.identifier == "columnName" {
+            return person.getText() as! String
+        }
+        
+        if tableColumn?.identifier == "columnAge" {
+            return person.getAge()
+        }
+        
+        
         return person.getText() as! String
     }
+    
+    
     
     
     func loadDemoData(){
@@ -66,12 +78,14 @@ class ViewController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
         let p2:PersonItem = PersonItem("Two",  20)
         let p3:PersonItem = PersonItem("Three",  30)
         let p2_2:PersonItem = PersonItem("Four",  40)
+        let p5:PersonItem = PersonItem("Five",  50)
         
         p2.addChild(p2_2)
         
         OutlineInteraction.rootItem?.addChild(p1)
         OutlineInteraction.rootItem?.addChild(p2)
         OutlineInteraction.rootItem?.addChild(p3)
+        OutlineInteraction.rootItem?.addChild(p5)
     }
     
 }
